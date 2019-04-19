@@ -28,28 +28,28 @@ public class MainActivity extends AppCompatActivity {
     public final static int QRcodeWidth = 500 ;
     private static final String IMAGE_DIRECTORY = "/QRcodeDemonuts";
     Bitmap bitmap ;
-    private EditText etqr;
-    private ImageView iv;
-    private Button btn;
+    private EditText edtxt;
+    private ImageView imv;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        iv = (ImageView) findViewById(R.id.iv);
-        etqr = (EditText) findViewById(R.id.etqr);
-        btn = (Button) findViewById(R.id.btn);
+        imv = (ImageView) findViewById(R.id.iv);
+        edtxt = (EditText) findViewById(R.id.etqr);
+        button = (Button) findViewById(R.id.btn);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(etqr.getText().toString().trim().length() == 0){
+                if(edtxt.getText().toString().trim().length() == 0){
                     Toast.makeText(MainActivity.this, "Enter String!", Toast.LENGTH_SHORT).show();
                 }else {
                     try {
-                        bitmap = TextToImageEncode(etqr.getText().toString());
-                        iv.setImageBitmap(bitmap);
+                        bitmap = TextToImageEncode(edtxt.getText().toString());
+                        imv.setImageBitmap(bitmap);
                         String path = saveImage(bitmap);  //give read write permission
                         Toast.makeText(MainActivity.this, "QRCode saved to -> "+path, Toast.LENGTH_SHORT).show();
                     } catch (WriterException e) {
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         // have the object build the directory structure, if needed.
 
         if (!wallpaperDirectory.exists()) {
-            Log.d("dirrrrrr", "" + wallpaperDirectory.mkdirs());
+            Log.d("dir", "" + wallpaperDirectory.mkdirs());
             wallpaperDirectory.mkdirs();
         }
 

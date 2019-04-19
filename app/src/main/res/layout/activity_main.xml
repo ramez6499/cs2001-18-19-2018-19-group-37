@@ -13,7 +13,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="150dp"
         android:layout_marginRight="150dp"
-        android:hint="Enter String" />
+        android:hint="Enter Username" />
 
     <Button
         android:layout_width="wrap_content"
